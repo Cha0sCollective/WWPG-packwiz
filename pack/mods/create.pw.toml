@@ -1,0 +1,9 @@
+name = "Create"
+filename = "create-1.21.1-6.0.10-280.jar"
+side = "both"
+pin = true
+
+[download]
+url = "https://maven.createmod.net/com/simibubi/create/create-1.21.1/6.0.10-280/create-1.21.1-6.0.10-280.jar"
+hash-format = "sha256"
+hash = "192c7b0be13f523dcec9a7a2393bbc2614c3c9bd3edb1f7720a97bcd4f0b87a7"

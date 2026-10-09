@@ -1,0 +1,9 @@
+name = "Power Grid"
+filename = "powergrid-mc1.21.1-0.6.2.jar"
+side = "both"
+pin = true
+
+[download]
+url = "https://mediafilez.forgecdn.net/files/8880/715/powergrid-mc1.21.1-0.6.2.jar"
+hash-format = "sha256"
+hash = "e40d67a874431925d502af88e85064883c67936cfd689033d7df560cffcf19e7"
