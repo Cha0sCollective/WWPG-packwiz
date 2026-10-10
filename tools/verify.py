@@ -68,6 +68,15 @@ def verify():
     )
     for asset in lock["assets"].values():
         assert len(asset["sha256"]) == 64
+    world_directories = []
+    for key in ("example_world", "expanded_world"):
+        asset = lock["assets"][key]
+        assert asset["url"].startswith("https://")
+        directory = asset["directory"]
+        assert directory and directory not in (".", "..")
+        assert not any(character in directory for character in "/\\:")
+        world_directories.append(directory)
+    assert len(set(world_directories)) == len(world_directories)
     print("Packwiz index, five pinned mods, Prism versions and native/16 solver settings verified")
 
 

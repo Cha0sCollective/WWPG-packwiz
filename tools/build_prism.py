@@ -7,6 +7,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 LOCK = json.loads((ROOT / "dependencies.json").read_text(encoding="utf-8"))
+WORLD_ASSETS = ("example_world", "expanded_world")
 
 
 def sha256(data):
@@ -44,13 +45,18 @@ def build():
     files["minecraft/config/powergrid-server.toml"] = (
         ROOT / "pack/config/powergrid-server.toml"
     ).read_bytes()
-    with zipfile.ZipFile(download(LOCK["assets"]["example_world"])) as world:
-        for entry in world.infolist():
-            path = PurePosixPath(entry.filename)
-            if path.is_absolute() or ".." in path.parts or path.parts[0] != "WWPG Example":
-                raise ValueError("Unexpected example-world path: " + entry.filename)
-            if not entry.is_dir():
-                files["minecraft/saves/" + path.as_posix()] = world.read(entry)
+    for key in WORLD_ASSETS:
+        asset = LOCK["assets"][key]
+        with zipfile.ZipFile(download(asset)) as world:
+            for entry in world.infolist():
+                path = PurePosixPath(entry.filename)
+                if (path.is_absolute() or ".." in path.parts or not path.parts
+                        or path.parts[0] != asset["directory"] or "\\" in entry.filename):
+                    raise ValueError("Unexpected example-world path: " + entry.filename)
+                if not entry.is_dir():
+                    files["minecraft/saves/" + path.as_posix()] = world.read(entry)
+        if "minecraft/saves/" + asset["directory"] + "/level.dat" not in files:
+            raise ValueError("Missing level.dat: " + asset["filename"])
     output = ROOT / "build/distributions"
     output.mkdir(parents=True, exist_ok=True)
     archive = output / ("WWPG-Test-Pack-" + LOCK["version"] + "-Prism.zip")

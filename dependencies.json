@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": "0.1.0-beta.2",
+  "version": "0.1.0-beta.4",
   "repository": "Cha0sCollective/WWPG-packwiz",
   "minecraft": "1.21.1",
   "neoforge": "21.1.231",
@@ -41,10 +41,10 @@
     {
       "id": "wwpg",
       "name": "World-Wide Power Grid",
-      "version": "0.1.0-beta.2",
-      "filename": "wwpg-0.1.0-beta.2.jar",
-      "url": "https://github.com/Cha0sCollective/World-Wide-Power-Grid/releases/download/0.1.0-beta.2/wwpg-0.1.0-beta.2.jar",
-      "sha256": "1c4963b5821e37221d5c3f7d37d6d0e2749252eb57c7ccf1e4b99009bee3db93"
+      "version": "0.1.0-beta.4",
+      "filename": "wwpg-0.1.0-beta.4.jar",
+      "url": "https://github.com/Cha0sCollective/World-Wide-Power-Grid/releases/download/0.1.0-beta.4/wwpg-0.1.0-beta.4.jar",
+      "sha256": "a4de0887257ba3e32924ae3b7babf08f0bbb9fd1630ac5e56d6087598fda86e2"
     }
   ],
   "assets": {
@@ -73,9 +73,16 @@
       "bytes": 1063
     },
     "example_world": {
-      "filename": "wwpg-0.1.0-beta.2-example.zip",
-      "url": "https://github.com/Cha0sCollective/World-Wide-Power-Grid/releases/download/0.1.0-beta.2/wwpg-0.1.0-beta.2-example.zip",
-      "sha256": "11b1e2055c38591663ad45a12c5f5f61f351c777ef62d244b9d256737dd22d8e"
+      "filename": "wwpg-0.1.0-beta.2-example-v2.zip",
+      "directory": "WWPG Example - Panel Demo",
+      "url": "https://github.com/Cha0sCollective/World-Wide-Power-Grid/releases/download/0.1.0-beta.4/wwpg-0.1.0-beta.2-example-v2.zip",
+      "sha256": "ef7547db80a9ce80246c2825008e24bca6712104f82e8e2f5701e9871947c413"
+    },
+    "expanded_world": {
+      "filename": "wwpg-0.1.0-beta.2-fixture-world-v1.zip",
+      "directory": "WWPG Expanded Test Yard",
+      "url": "https://github.com/Cha0sCollective/World-Wide-Power-Grid/releases/download/0.1.0-beta.4/wwpg-0.1.0-beta.2-fixture-world-v1.zip",
+      "sha256": "7463af3876daa72064b0fa226f1cd88a633af6a1b2ab7471720d0fd6f3dd128f"
     }
   }
 }
