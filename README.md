@@ -4,12 +4,12 @@ Import this pack into **Prism Launcher** to try the WWPG beta with the exact req
 
 ## Play
 
-1. Download [WWPG-Test-Pack-0.1.0-beta.1-Prism.zip](https://github.com/Cha0sCollective/WWPG-packwiz/releases/download/0.1.0-beta.1/WWPG-Test-Pack-0.1.0-beta.1-Prism.zip).
+1. Download [WWPG-Test-Pack-0.1.0-beta.2-Prism.zip](https://github.com/Cha0sCollective/WWPG-packwiz/releases/download/0.1.0-beta.2/WWPG-Test-Pack-0.1.0-beta.2-Prism.zip).
 2. In a current Prism Launcher, choose **Add Instance → Import**, select the ZIP, and create the instance. Allow the included installer command if Prism asks.
 3. Launch the instance. Prism installs Minecraft and NeoForge; packwiz downloads and verifies the five pinned mods. Internet access and a Minecraft account are required. Automatic Java selection is enabled; use Java 21 if your launcher asks you to select Java.
 4. Choose **Singleplayer → WWPG Example**. You start in Creative mode at `(8, 64, 16)`.
 
-The northern circuit uses a CEE source and a CEE switch/meter panel to power a PG capacitor board. The southern circuit uses a PG source to power CEE lighting, heating, and a water pump connected to Create pipes and tanks. The input water is finite; refill it if the pump has already moved it.
+The northern circuit uses a CEE source and a CEE switch/meter panel to power a PG capacitor board. The southern circuits use a 300 V PG source for CEE lighting and a water pump connected to Create pipes and tanks, plus a separate 600 V source for a CEE heater beneath a Create basin. A chest at `(6, 64, 16)` contains both meters and both wire tools. The input water is finite; refill it if the pump has already moved it.
 
 ## Included versions
 
@@ -22,11 +22,11 @@ The northern circuit uses a CEE source and a CEE switch/meter panel to power a P
 | Create: Electro Energetics | 1.21.1-1.1.3 |
 | Power Grid | 0.6.2 |
 | Architectury API | 13.0.8 |
-| World-Wide Power Grid | 0.1.0-beta.1 |
+| World-Wide Power Grid | 0.1.0-beta.2 |
 
 Power Grid is configured for the native backend with 16 electrical substeps. WWPG supplies its required native resources. Native support was tested on Windows x86-64 and Ubuntu 24.04 x86-64; Linux requires glibc 2.38 or newer. PG retains its Java fallback. Use `/wwpg` to check the active backend; enable cheats for commands if needed.
 
-This is a small stationary beta demonstration. Read WWPG's [supported content](https://github.com/Cha0sCollective/World-Wide-Power-Grid/blob/main/docs/SUPPORT.md) and [known issues](https://github.com/Cha0sCollective/World-Wide-Power-Grid/blob/main/docs/STATUS.md), including an unresolved intermittent reload test failure.
+This is a small stationary beta demonstration. Read WWPG's [supported content](https://github.com/Cha0sCollective/World-Wide-Power-Grid/blob/main/docs/SUPPORT.md) and [known issues](https://github.com/Cha0sCollective/World-Wide-Power-Grid/blob/main/docs/STATUS.md), including two unresolved intermittent reload/restart test failures.
 
 ## Saves and updates
 
@@ -52,4 +52,4 @@ The [official packwiz installer guide](https://packwiz.infra.link/tutorials/inst
 
 ## License
 
-WWPG pack code and documentation use [MIT](LICENSE). The ZIP retains the packwiz bootstrap and installer licenses. WWPG's own beta code is MIT licensed even though its original jar predates that decision and contains older metadata. Power Grid's bundled native resources and the other upstream dependencies retain their own licenses.
+WWPG pack code and documentation use [MIT](LICENSE). The ZIP retains the packwiz bootstrap and installer licenses. WWPG's beta.2 jar includes its MIT license. Power Grid's bundled native resources and the other upstream dependencies retain their own licenses.

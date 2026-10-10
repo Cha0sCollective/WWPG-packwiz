@@ -1,13 +1,13 @@
 name = "WWPG Test Pack"
 author = "Cha0sCollective"
-version = "0.1.0-beta.1"
+version = "0.1.0-beta.2"
 description = "A small mixed CEE and Power Grid factory, ready to test in Prism."
 pack-format = "packwiz:1.1.0"
 
 [index]
 file = "index.toml"
 hash-format = "sha256"
-hash = "004b06c57e4618ecc51a05b47c3274b06c59dfb0ab9483fa73363af65121b4e8"
+hash = "90749a165bc8b204b1f5fe584b055a4abf8e6d475a9bcdfd13137802ded78cb6"
 
 [versions]
 minecraft = "1.21.1"
