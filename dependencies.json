@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": "0.1.0-beta.4",
+  "version": "0.2.0",
   "repository": "Cha0sCollective/WWPG-packwiz",
   "minecraft": "1.21.1",
   "neoforge": "21.1.231",
@@ -41,10 +41,10 @@
     {
       "id": "wwpg",
       "name": "World-Wide Power Grid",
-      "version": "0.1.0-beta.4",
-      "filename": "wwpg-0.1.0-beta.4.jar",
-      "url": "https://github.com/Cha0sCollective/World-Wide-Power-Grid/releases/download/0.1.0-beta.4/wwpg-0.1.0-beta.4.jar",
-      "sha256": "a4de0887257ba3e32924ae3b7babf08f0bbb9fd1630ac5e56d6087598fda86e2"
+      "version": "0.2.0",
+      "filename": "wwpg-0.2.0.jar",
+      "url": "https://github.com/Cha0sCollective/World-Wide-Power-Grid/releases/download/0.2.0/wwpg-0.2.0.jar",
+      "sha256": "708d3bac7fee11f34a770f0a145ee4226a95566870db572767aafa97bae78f10"
     }
   ],
   "assets": {
@@ -79,10 +79,10 @@
       "sha256": "ef7547db80a9ce80246c2825008e24bca6712104f82e8e2f5701e9871947c413"
     },
     "expanded_world": {
-      "filename": "wwpg-0.1.0-beta.2-fixture-world-v1.zip",
-      "directory": "WWPG Expanded Test Yard",
-      "url": "https://github.com/Cha0sCollective/World-Wide-Power-Grid/releases/download/0.1.0-beta.4/wwpg-0.1.0-beta.2-fixture-world-v1.zip",
-      "sha256": "7463af3876daa72064b0fa226f1cd88a633af6a1b2ab7471720d0fd6f3dd128f"
+      "filename": "wwpg-0.2.0-stationary-yard.zip",
+      "directory": "Stationary Test Yard",
+      "url": "https://github.com/Cha0sCollective/World-Wide-Power-Grid/releases/download/0.2.0/wwpg-0.2.0-stationary-yard.zip",
+      "sha256": "87c1e1ed4a3516327354c015b5fc808e4670fb083ebdae1fcb5ba85d9a9da12b"
     }
   }
 }

@@ -1,29 +1,29 @@
 # WWPG Test Pack
 
-Import this pack into **Prism Launcher** to try WWPG beta.4 with the exact required mods, an expanded test yard, and a smaller factory demo. This repository is separate from the [WWPG mod](https://github.com/Cha0sCollective/World-Wide-Power-Grid).
+Import this pack into **Prism Launcher** to try WWPG 0.2.0 with the exact required mods, the current Stationary Test Yard, and a smaller historical factory demo. This repository is separate from the [WWPG mod](https://github.com/Cha0sCollective/World-Wide-Power-Grid).
 
 ## Play
 
-1. Download [WWPG-Test-Pack-0.1.0-beta.4-Prism.zip](https://github.com/Cha0sCollective/WWPG-packwiz/releases/download/0.1.0-beta.4/WWPG-Test-Pack-0.1.0-beta.4-Prism.zip).
+1. Download [WWPG-Test-Pack-0.2.0-Prism.zip](https://github.com/Cha0sCollective/WWPG-packwiz/releases/download/0.2.0/WWPG-Test-Pack-0.2.0-Prism.zip).
 2. In a current Prism Launcher, choose **Add Instance → Import**, select the ZIP, and create the instance. Allow the included installer command if Prism asks.
 3. Launch the instance. Prism installs Minecraft and NeoForge; packwiz downloads and verifies the five pinned mods. Internet access and a Minecraft account are required. Automatic Java selection is enabled; use Java 21 if your launcher asks you to select Java.
-4. Choose **Singleplayer → WWPG - Expanded Test Yard**. You start in Creative mode at `(8, 64, 16)`. The smaller **WWPG - Panel Relay Demo** is also included.
+4. Choose **Singleplayer → Stationary Test Yard**. You start in Creative mode at `(8, 64, 16)`. The smaller **WWPG - Panel Relay Demo** is also included as a historical example.
 
 ## Explore the worlds
 
-In the **expanded yard**, take the guidebook, Engineer's Goggles, meters, and wrench from the chest at `(6, 64, 16)`. Follow the white path or fly between the labeled stations:
+In the **Stationary Test Yard**, take the guidebooks, Engineer's Goggles, meters, and tools from the spawn chest at `(8, 64, 16)`. Follow the white paths or fly between the labeled stations. Each exhibit explains its controls, expected readings, and reset action. The earlier factory, board and panel galleries, transformers, and meter banks remain on the west side; 79 additional exhibits are on the east side.
 
 | Area | Where | What to try |
 | --- | --- | --- |
-| Factory | Near spawn | Flip **Factory enable** to change the green RUN and red OFF lamps; watch the water pump and heater beneath the basin. |
-| Board gallery | x32–112, z8–81 | Try switches, relays, storage, diodes, transistors, tubes, lights, gauges, and displays. |
-| Panel gallery | x32–112, z94–115 | Press buttons, switch lamps, trip and reset a breaker, read gauges, and control wireless lamps. |
-| Transformers and variacs | x32–112, z124–145 | Compare input/output voltage and adjust ratios or cranks. |
-| Meter banks | x32, 64, or 96; z156 | Compare both mods' readings; the AC station uses 50 Hz. |
-| Devices and storage | x32–112, z176–237 | Try motors, controls, connectors, battery charging, and the accumulator. |
-| Parts cabinets | x6–10, z48 onward | Take spares and supported parts for your own builds. |
+| Factory and galleries | West side | Toggle **Factory enable**, try the board and panel controls, and compare transformer and meter readings. |
+| Core and radiator | Follow the exhibit signs | Inspect generation, the mixed load, and cooling. |
+| Plotter and CRTs | S15, S24–S26 | Change the input to move the graph trace or glowing CRT dot. |
+| Saved circuit design | S61 | Load, edit, save, copy, and assemble the supplied design through PG's native menus. |
+| Nether link | S65 | Enter the portal and compare the powered equipment at both ends. |
+| Wire families and duplex cable | S68–S77 | Switch the feed and measure the load; the duplex example powers a red 12 V bulb. |
+| Wire attachments and energy meter | S78–S79 | Use native wire attachments and compare the lamps with the three-pole meter. |
 
-The yard has live examples for all 28 built-in PG board component types and all 11 CEE panel attachment types. It demonstrates 85 of the 134 declared behavior groups; cabinet contents are parts, not working exhibits. See the [full station guide](https://github.com/Cha0sCollective/World-Wide-Power-Grid/blob/0.1.0-beta.4/docs/FIXTURE_WORLD.md) for controls and expected readings. Goggles show numeric readings when meter needles barely move.
+Use the [current station guide](https://github.com/Cha0sCollective/World-Wide-Power-Grid/blob/0.2.0/docs/STATIONARY_YARD.md) for expected readings and resets. Goggles show precise readings when meter needles barely move. Cabinets contain spares; their contents are not counted as working demonstrations. If PG's design editor is cut off, reduce **Options → Video Settings → GUI Scale**; scale 2 fits its controls in a 1280 × 720 window.
 
 The smaller **panel-relay demo** uses a CEE panel to control a PG relay and capacitor board, which switches power to CEE lamps. Turn **Factory enable** off: the green RUNNING lamp stays on for roughly three seconds, then red OFF lights. Turn it on again to recharge and switch back. Southern circuits use a 300 V PG supply for CEE lighting and a water pump, plus a separate 600 V supply for the heater under a Create basin. Both worlds include meters and wire tools at spawn. The input water is finite; refill it if the pump has already moved it.
 
@@ -38,15 +38,17 @@ The smaller **panel-relay demo** uses a CEE panel to control a PG relay and capa
 | Create: Electro Energetics | 1.21.1-1.1.3 |
 | Power Grid | 0.6.2 |
 | Architectury API | 13.0.8 |
-| World-Wide Power Grid | 0.1.0-beta.4 |
+| World-Wide Power Grid | 0.2.0 |
 
 Power Grid is configured for the native backend with 16 electrical substeps. WWPG supplies its required native resources. Native support was tested on Windows x86-64 and Ubuntu 24.04 x86-64; Linux requires glibc 2.38 or newer. PG retains its Java fallback. Use `/wwpg` to check the active backend; enable cheats for commands if needed.
 
-Beta.4 fixes premature wire removal during chunk loading and capacitor charge loss on restored circuit boards. It cannot recover wires or charge already lost and saved by an older version. PG's saved-design load error remains open; the expanded yard excludes a placed circuit design table. This is a stationary beta demonstration; read WWPG's [supported content](https://github.com/Cha0sCollective/World-Wide-Power-Grid/blob/0.1.0-beta.4/docs/SUPPORT.md) and [known issues](https://github.com/Cha0sCollective/World-Wide-Power-Grid/blob/0.1.0-beta.4/docs/STATUS.md) for its limits.
+WWPG 0.2.0 adds a public extension API for add-on machines and improves saved terminal ownership, late-loading wires, and unavailable meter readings. The earlier saved-design error is corrected and demonstrated in the current yard. Read [supported content](https://github.com/Cha0sCollective/World-Wide-Power-Grid/blob/0.2.0/docs/SUPPORT.md) and [current status](https://github.com/Cha0sCollective/World-Wide-Power-Grid/blob/0.2.0/docs/STATUS.md) for the declared stationary scope.
+
+This pack uses WWPG's base profile. The optional Pinout computer-control profile and separate Extension API Workshop require additional mods; see [WWPG's installation guide](https://github.com/Cha0sCollective/World-Wide-Power-Grid/blob/0.2.0/docs/INSTALL.md). The runtime WWPG jar already supplies the APIs; developer API jars belong in build dependencies.
 
 ## Saves and updates
 
-Both worlds are included once in the import ZIP. Packwiz manages only the mod downloads and initial solver configuration; it does not manage `saves/`, so launching again preserves your world edits. The release instance uses the pack's fixed Git tag. A future pack release requires a new import; keep your old instance to retain its worlds. The world archives retain their beta.2 filenames because those saves are unchanged and work with beta.4.
+Both worlds are included once in the import ZIP. Packwiz manages only the mod downloads and initial solver configuration; it does not manage `saves/`, so launching again preserves your world edits. The release instance uses the pack's fixed Git tag. A future pack release requires a new import; keep your old instance to retain its worlds. The small panel demo retains its beta.2 archive filename and historical verification; the Stationary Test Yard is the current 0.2.0 acceptance world.
 
 ## Maintain the pack
 
@@ -68,4 +70,4 @@ The [official packwiz installer guide](https://packwiz.infra.link/tutorials/inst
 
 ## License
 
-WWPG pack code and documentation use [MIT](LICENSE). The ZIP retains the packwiz bootstrap and installer licenses. WWPG's beta.4 jar includes its MIT license. Power Grid's bundled native resources and the other upstream dependencies retain their own licenses.
+WWPG pack code and documentation use [MIT](LICENSE). The ZIP retains the packwiz bootstrap and installer licenses. WWPG's 0.2.0 jar includes its MIT license. Power Grid's bundled native resources and the other upstream dependencies retain their own licenses.
