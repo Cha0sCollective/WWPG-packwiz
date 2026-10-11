@@ -16,6 +16,11 @@ hash = "11052481b72b534294a49012cbbe4316b6d3fe47627a9dbd96dbf29c41dadcf0"
 metafile = true
 
 [[files]]
+file = "mods/computercraft.pw.toml"
+hash = "9579b4cb2cd5e949f0477583c452484e0625f3dcd73ffbb8d80d05d3e8141ffc"
+metafile = true
+
+[[files]]
 file = "mods/create.pw.toml"
 hash = "eee056d8e0fb9f4dc71ac1214168607460ba54cbb39da1850f216befca94951c"
 metafile = true
@@ -23,6 +28,11 @@ metafile = true
 [[files]]
 file = "mods/pg.pw.toml"
 hash = "2f90602048ef529fb4bdf9b11b0a8c4f463e31f388dd84bfb97d595ab3687b6b"
+metafile = true
+
+[[files]]
+file = "mods/pinout.pw.toml"
+hash = "be67ee16cbddad4ae1e16ea59c7ee07478a7c31a316d3a501429330a4237fd86"
 metafile = true
 
 [[files]]

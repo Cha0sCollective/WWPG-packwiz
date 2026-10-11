@@ -1,6 +1,7 @@
 {
   "schema": 1,
-  "version": "0.2.0",
+  "version": "0.2.0-pinout.1",
+  "profile": "PINOUT",
   "repository": "Cha0sCollective/WWPG-packwiz",
   "minecraft": "1.21.1",
   "neoforge": "21.1.231",
@@ -45,6 +46,22 @@
       "filename": "wwpg-0.2.0.jar",
       "url": "https://github.com/Cha0sCollective/World-Wide-Power-Grid/releases/download/0.2.0/wwpg-0.2.0.jar",
       "sha256": "708d3bac7fee11f34a770f0a145ee4226a95566870db572767aafa97bae78f10"
+    },
+    {
+      "id": "computercraft",
+      "name": "CC:Tweaked",
+      "version": "1.120.2",
+      "filename": "cc-tweaked-1.21.1-forge-1.120.2.jar",
+      "url": "https://cdn.modrinth.com/data/gu7yAYhd/versions/1ewzHZYg/cc-tweaked-1.21.1-forge-1.120.2.jar",
+      "sha256": "e8651fe24b384e925e563c9ad077644744474e2e7c0adb8e6d5b4757598dce9f"
+    },
+    {
+      "id": "pinout",
+      "name": "CC;CPG: Pinout",
+      "version": "0.2.1",
+      "filename": "pinout-0.2.1.jar",
+      "url": "https://cdn.modrinth.com/data/sMa4MaGz/versions/UJtJCpBi/pinout-0.2.1.jar",
+      "sha256": "d31c19c3c8aefb512922bf8086146127cad7ef9100d929a8fddcc2ab133fdd4a"
     }
   ],
   "assets": {
@@ -79,10 +96,12 @@
       "sha256": "ef7547db80a9ce80246c2825008e24bca6712104f82e8e2f5701e9871947c413"
     },
     "expanded_world": {
-      "filename": "wwpg-0.2.0-stationary-yard.zip",
-      "directory": "Stationary Test Yard",
-      "url": "https://github.com/Cha0sCollective/World-Wide-Power-Grid/releases/download/0.2.0/wwpg-0.2.0-stationary-yard.zip",
-      "sha256": "87c1e1ed4a3516327354c015b5fc808e4670fb083ebdae1fcb5ba85d9a9da12b"
+      "filename": "wwpg-0.2.0-example-worlds.zip",
+      "directory": "Stationary Test Yard — Pinout",
+      "url": "https://github.com/Cha0sCollective/World-Wide-Power-Grid/releases/download/0.2.0/wwpg-0.2.0-example-worlds.zip",
+      "sha256": "192115876247df8de2ffbfcb8f7907688f4df2c167207c2b16db723246600307",
+      "member": "worlds/wwpg-0.2.0-stationary-yard-pinout.zip",
+      "member_sha256": "f736a1229658ae7d4defa238693f702c3fafbcb1d752a7ec6239a7e9c3372ca0"
     }
   }
 }

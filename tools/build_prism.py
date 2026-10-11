@@ -1,5 +1,6 @@
 """Build a reproducible Prism import ZIP from pinned published assets."""
 import hashlib
+from io import BytesIO
 import json
 from pathlib import Path, PurePosixPath
 from urllib.request import Request, urlopen
@@ -28,6 +29,17 @@ def download(asset):
     return path
 
 
+def world_archive(asset):
+    path = download(asset)
+    if "member" not in asset:
+        return zipfile.ZipFile(path)
+    with zipfile.ZipFile(path) as bundle:
+        data = bundle.read(asset["member"])
+    if sha256(data) != asset["member_sha256"]:
+        raise ValueError("Checksum mismatch: " + asset["member"])
+    return zipfile.ZipFile(BytesIO(data))
+
+
 def build():
     from verify import verify
     verify()
@@ -47,7 +59,7 @@ def build():
     ).read_bytes()
     for key in WORLD_ASSETS:
         asset = LOCK["assets"][key]
-        with zipfile.ZipFile(download(asset)) as world:
+        with world_archive(asset) as world:
             for entry in world.infolist():
                 path = PurePosixPath(entry.filename)
                 if (path.is_absolute() or ".." in path.parts or not path.parts

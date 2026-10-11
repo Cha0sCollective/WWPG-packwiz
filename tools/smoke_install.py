@@ -19,12 +19,17 @@ class QuietHandler(SimpleHTTPRequestHandler):
         pass
 
 
+class PackServer(ThreadingHTTPServer):
+    # The installer fetches mod metadata concurrently.
+    request_queue_size = 32
+
+
 def smoke(java, pack_url=None):
     archive = build()
     handler = functools.partial(QuietHandler, directory=str(ROOT / "pack"))
     server = None
     if pack_url is None:
-        server = ThreadingHTTPServer(("127.0.0.1", 0), handler)
+        server = PackServer(("127.0.0.1", 0), handler)
         threading.Thread(target=server.serve_forever, daemon=True).start()
         pack_url = "http://127.0.0.1:" + str(server.server_port) + "/pack.toml"
     try:
@@ -47,11 +52,12 @@ def smoke(java, pack_url=None):
                     "--bootstrap-no-update", "--bootstrap-main-jar", str(minecraft / "packwiz-installer.jar"),
                     "-g", "-s", "client", pack_url]
             for phase in (1, 2):
-                result = subprocess.run(args, cwd=minecraft, env=env, check=True,
+                result = subprocess.run(args, cwd=minecraft, env=env,
                                         capture_output=True, text=True, timeout=180)
                 (ROOT / "build" / ("installer-smoke-" + str(phase) + ".log")).write_text(
                     result.stdout + result.stderr, encoding="utf-8"
                 )
+                result.check_returncode()
                 for mod in LOCK["mods"]:
                     actual = hashlib.sha256((minecraft / "mods" / mod["filename"]).read_bytes()).hexdigest()
                     assert actual == mod["sha256"], mod["filename"]
@@ -70,7 +76,7 @@ def smoke(java, pack_url=None):
                     for marker in markers:
                         assert marker.read_text(encoding="utf-8") == "Keep this player's world edits.\n"
                     assert "# Player config note" in config.read_text(encoding="utf-8")
-            print("Actual packwiz installation and relaunch passed: five matching jars, both worlds and configuration preserved")
+            print(f"Actual packwiz installation and relaunch passed: {len(LOCK['mods'])} matching jars, both worlds and configuration preserved")
     finally:
         if server is not None:
             server.shutdown()

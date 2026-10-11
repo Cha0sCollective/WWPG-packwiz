@@ -35,7 +35,10 @@ def verify():
             assert entry["metafile"]
         else:
             assert entry.get("preserve"), "Solver configuration must preserve player edits"
-    assert {m["id"] for m in lock["mods"]} == {"wwpg", "cee", "pg", "create", "architectury"}
+    assert lock["profile"] == "PINOUT"
+    assert {m["id"] for m in lock["mods"]} == {
+        "wwpg", "cee", "pg", "create", "architectury", "computercraft", "pinout"
+    }
     for mod in lock["mods"]:
         metadata = tomllib.loads((pack_root / "mods" / (mod["id"] + ".pw.toml")).read_text(encoding="utf-8"))
         assert metadata["filename"] == mod["filename"]
@@ -75,9 +78,13 @@ def verify():
         directory = asset["directory"]
         assert directory and directory not in (".", "..")
         assert not any(character in directory for character in "/\\:")
+        assert ("member" in asset) == ("member_sha256" in asset)
+        if "member" in asset:
+            assert len(asset["member_sha256"]) == 64
+            assert asset["member"].endswith(".zip")
         world_directories.append(directory)
     assert len(set(world_directories)) == len(world_directories)
-    print("Packwiz index, five pinned mods, Prism versions and native/16 solver settings verified")
+    print(f"Packwiz index, {len(lock['mods'])} pinned mods, Prism versions and native/16 solver settings verified")
 
 
 if __name__ == "__main__":
