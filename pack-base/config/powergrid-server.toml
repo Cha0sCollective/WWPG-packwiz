@@ -1,0 +1,5 @@
+configVersion = 5
+
+[electricity.solver]
+solverBackend = "NATIVE"
+multiTicks = 16

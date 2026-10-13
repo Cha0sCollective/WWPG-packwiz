@@ -1,0 +1,9 @@
+name = "Architectury API"
+filename = "architectury-neoforge-13.0.8.jar"
+side = "both"
+pin = true
+
+[download]
+url = "https://maven.architectury.dev/dev/architectury/architectury-neoforge/13.0.8/architectury-neoforge-13.0.8.jar"
+hash-format = "sha256"
+hash = "2eb06668281be9c57ed6ba8b2ca39b155567063c3096aa94a1c2140694f787df"

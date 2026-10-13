@@ -1,0 +1,31 @@
+hash-format = "sha256"
+
+[[files]]
+file = "config/powergrid-server.toml"
+hash = "6cd2d6af8656aa479ba25da115da822be6ef194689af67d38c3e794a8343376a"
+preserve = true
+
+[[files]]
+file = "mods/architectury.pw.toml"
+hash = "0db42106724178ebc0425d74448da1467028e78083239eb979d1ab10e0fec811"
+metafile = true
+
+[[files]]
+file = "mods/cee.pw.toml"
+hash = "11052481b72b534294a49012cbbe4316b6d3fe47627a9dbd96dbf29c41dadcf0"
+metafile = true
+
+[[files]]
+file = "mods/create.pw.toml"
+hash = "eee056d8e0fb9f4dc71ac1214168607460ba54cbb39da1850f216befca94951c"
+metafile = true
+
+[[files]]
+file = "mods/pg.pw.toml"
+hash = "2f90602048ef529fb4bdf9b11b0a8c4f463e31f388dd84bfb97d595ab3687b6b"
+metafile = true
+
+[[files]]
+file = "mods/wwpg.pw.toml"
+hash = "6da69112a15bda8af9a86a86d71c2efed03ab590d167685d6d734c554ad412a2"
+metafile = true

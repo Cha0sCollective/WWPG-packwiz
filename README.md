@@ -1,19 +1,26 @@
 # WWPG Test Pack
 
-Import this pack into **Prism Launcher** to try WWPG 0.2.0 with **Pinout computer controls**, the Pinout Stationary Test Yard, and a smaller historical factory demo. Pinout and CC:Tweaked are included in the pinned downloads. This repository is separate from the [WWPG mod](https://github.com/Cha0sCollective/World-Wide-Power-Grid).
+Import these packs into **Prism Launcher** to try **WWPG 0.2.2-alpha.1** with the exact required mods and ready-made circuits. Choose the **Base** edition for ordinary factories or **Pinout** for computer control. Each includes its matching Stationary Test Yard and a smaller historical factory demo. This repository is separate from the [WWPG mod](https://github.com/Cha0sCollective/World-Wide-Power-Grid).
+
+This is an alpha for circuit-loading fixes and SDK improvements. Large-network performance remains under investigation; see [current status](https://github.com/Cha0sCollective/World-Wide-Power-Grid/blob/0.2.2-alpha.1/docs/STATUS.md).
 
 ## Play
 
-1. Download [WWPG-Test-Pack-0.2.0-pinout.1-Prism.zip](https://github.com/Cha0sCollective/WWPG-packwiz/releases/download/0.2.0-pinout.1/WWPG-Test-Pack-0.2.0-pinout.1-Prism.zip).
-2. In a current Prism Launcher, choose **Add Instance → Import**, select the ZIP, and create the instance. Allow the included installer command if Prism asks.
-3. Launch the instance. Prism installs Minecraft and NeoForge; packwiz downloads and verifies the seven pinned mods. Internet access and a Minecraft account are required. Automatic Java selection is enabled; use Java 21 if your launcher asks you to select Java.
-4. Choose **Singleplayer → Stationary Test Yard — Pinout**. You start in Creative mode at `(8, 64, 16)`. The smaller **WWPG - Panel Relay Demo** is also included as a historical example.
+| Edition | Download | Mods and world |
+| --- | --- | --- |
+| Pinout | [Pinout Prism ZIP](https://github.com/Cha0sCollective/WWPG-packwiz/releases/download/0.2.2-alpha.1/WWPG-Test-Pack-0.2.2-alpha.1-Pinout-Prism.zip) | Seven mods, including Pinout and CC:Tweaked; **Stationary Test Yard — Pinout**. |
+| Base | [Base Prism ZIP](https://github.com/Cha0sCollective/WWPG-packwiz/releases/download/0.2.2-alpha.1/WWPG-Test-Pack-0.2.2-alpha.1-Prism.zip) | Five required mods; **Stationary Test Yard**. |
 
-The [original base 0.2.0 pack](https://github.com/Cha0sCollective/WWPG-packwiz/releases/tag/0.2.0) remains available. This Pinout edition is pack revision **0.2.0-pinout.1** and uses the same **WWPG 0.2.0** runtime jar.
+1. Download the ZIP for your chosen edition.
+2. In a current Prism Launcher, choose **Add Instance → Import**, select the ZIP, and create the instance. Allow the included installer command if Prism asks.
+3. Launch the instance. Prism installs Minecraft and NeoForge; packwiz downloads and verifies the five or seven pinned mods. Internet access and a Minecraft account are required. Automatic Java selection is enabled; use Java 21 if your launcher asks you to select Java.
+4. Choose **Singleplayer → Stationary Test Yard** in Base, or **Stationary Test Yard — Pinout** in Pinout. You start in Creative mode at `(8, 64, 16)`. The smaller **WWPG - Panel Relay Demo** is also included as a historical example.
+
+Earlier [pack releases](https://github.com/Cha0sCollective/WWPG-packwiz/releases) and their fixed tags remain available. Both new editions use the exact published **wwpg-0.2.2-alpha.1.jar**.
 
 ## Explore the worlds
 
-In the **Pinout Stationary Test Yard**, take the guidebooks, Engineer's Goggles, meters, and tools from the spawn chest at `(8, 64, 16)`. Follow the white paths or fly between the labeled stations. Each exhibit explains its controls, expected readings, and reset action. The earlier factory, board and panel galleries, transformers, and meter banks remain on the west side; the east side has 79 additional base exhibits and two Pinout computer stations.
+In either **Stationary Test Yard**, take the guidebooks, Engineer's Goggles, meters, and tools from the spawn chest at `(8, 64, 16)`. Follow the white paths or fly between the labeled stations. Each exhibit explains its controls, expected readings, and reset action. The earlier factory, board and panel galleries, transformers, and meter banks remain on the west side; the east side has 79 additional base exhibits. Pinout adds two computer stations.
 
 | Area | Where | What to try |
 | --- | --- | --- |
@@ -24,11 +31,11 @@ In the **Pinout Stationary Test Yard**, take the guidebooks, Engineer's Goggles,
 | Nether link | S65 | Enter the portal and compare the powered equipment at both ends. |
 | Wire families and duplex cable | S68–S77 | Switch the feed and measure the load; the duplex example powers a red 12 V bulb. |
 | Wire attachments and energy meter | S78–S79 | Use native wire attachments and compare the lamps with the three-pole meter. |
-| Pinout computer controls | S80–S81 | Use each upstream power supply to run eight computer-controlled lamps, a board relay, and a panel gauge. |
+| Pinout computer controls | S80–S81, Pinout edition | Use each upstream power supply to run eight computer-controlled lamps, a board relay, and a panel gauge. |
 
-Use the [current station guide](https://github.com/Cha0sCollective/World-Wide-Power-Grid/blob/0.2.0/docs/STATIONARY_YARD.md) for expected readings and resets. Goggles show precise readings when meter needles barely move. Cabinets contain spares; their contents are not counted as working demonstrations. If PG's design editor is cut off, reduce **Options → Video Settings → GUI Scale**; scale 2 fits its controls in a 1280 × 720 window.
+Use the [current station guide](https://github.com/Cha0sCollective/World-Wide-Power-Grid/blob/0.2.2-alpha.1/docs/STATIONARY_YARD.md) for expected readings and resets. Goggles show precise readings when meter needles barely move. Cabinets contain spares; their contents are not counted as working demonstrations. If PG's design editor is cut off, reduce **Options → Video Settings → GUI Scale**; scale 2 fits its controls in a 1280 × 720 window.
 
-At **S80 or S81**, open the computer and enter:
+In the **Pinout edition**, at **S80 or S81**, open the computer and enter:
 
 ```text
 wwpg start
@@ -51,40 +58,41 @@ The smaller **panel-relay demo** uses a CEE panel to control a PG relay and capa
 | Create: Electro Energetics | 1.21.1-1.1.3 |
 | Power Grid | 0.6.2 |
 | Architectury API | 13.0.8 |
-| World-Wide Power Grid | 0.2.0 |
-| CC:Tweaked | 1.120.2 |
-| CC;CPG: Pinout | 0.2.1 |
+| World-Wide Power Grid | 0.2.2-alpha.1 |
+| CC:Tweaked, Pinout edition | 1.120.2 |
+| CC;CPG: Pinout, Pinout edition | 0.2.1 |
 
 Power Grid is configured for the native backend with 16 electrical substeps. WWPG supplies its required native resources. Native support was tested on Windows x86-64 and Ubuntu 24.04 x86-64; Linux requires glibc 2.38 or newer. PG retains its Java fallback. Use `/wwpg` to check the active backend; enable cheats for commands if needed.
 
-WWPG 0.2.0 adds a public extension API for add-on machines and improves saved terminal ownership, late-loading wires, and unavailable meter readings. The earlier saved-design error is corrected and demonstrated in the current yard. Read [supported content](https://github.com/Cha0sCollective/World-Wide-Power-Grid/blob/0.2.0/docs/SUPPORT.md) and [current status](https://github.com/Cha0sCollective/World-Wide-Power-Grid/blob/0.2.0/docs/STATUS.md) for the declared stationary scope.
+WWPG 0.2.2-alpha.1 improves circuit loading, preserves stored energy while affected circuits load, and fixes a single-player buzzer crash. Extension API 1.0.0 remains compatible. Read [supported content](https://github.com/Cha0sCollective/World-Wide-Power-Grid/blob/0.2.2-alpha.1/docs/SUPPORT.md) and [current status](https://github.com/Cha0sCollective/World-Wide-Power-Grid/blob/0.2.2-alpha.1/docs/STATUS.md) for the declared stationary scope.
 
-This pack uses WWPG's **Pinout profile**. The separate Extension API Workshop uses two additional example add-ons described in [WWPG's installation guide](https://github.com/Cha0sCollective/World-Wide-Power-Grid/blob/0.2.0/docs/INSTALL.md). The runtime WWPG jar already supplies the APIs; developer API jars belong in build dependencies.
+The **Base** pack uses WWPG's base profile; **Pinout** includes the two computer-control mods. The separate Extension API Workshop uses two additional example add-ons described in [WWPG's installation guide](https://github.com/Cha0sCollective/World-Wide-Power-Grid/blob/0.2.2-alpha.1/docs/INSTALL.md). The runtime WWPG jar already supplies the APIs; developer API jars belong in build dependencies.
 
 ## Saves and updates
 
-Both worlds are included once in the import ZIP. Packwiz manages only the mod downloads and initial solver configuration; it does not manage `saves/`, so launching again preserves your world edits and computer programs. The release instance uses the pack's fixed Git tag. A future pack release requires a new import; keep your old instance to retain its worlds. The small panel demo retains its beta.2 archive filename and historical verification; the Pinout Stationary Test Yard is the current 0.2.0 Pinout acceptance world.
+Each ZIP includes two worlds once on import. Packwiz manages only the mod downloads and initial solver configuration; it does not manage `saves/`, so launching again preserves your world edits and computer programs. Both editions use the pack's fixed Git tag with separate managed pack directories. A future pack release requires a new import; keep your old instance to retain its worlds. The small panel demo retains its beta.2 archive filename and historical verification; each Stationary Yard comes from the current alpha's published world bundle.
 
 ## Maintain the pack
 
 All downloads have SHA-256 checksums in [dependencies.json](dependencies.json). Upstream mods are downloaded from their original distribution URLs; their jars are not committed here. Create already bundles Ponder, Flywheel, and Registrate.
 
-The Pinout yard is read from `worlds/wwpg-0.2.0-stationary-yard-pinout.zip` inside the published `wwpg-0.2.0-example-worlds.zip` bundle. Both the bundle and the inner world archive have pinned checksums. Only the named save is copied into the Prism instance.
+The two yards are read from their named inner archives inside the published `wwpg-0.2.2-alpha.1-example-worlds.zip` bundle. Both the bundle and inner archives have pinned checksums. Each edition copies only its own named yard into the Prism instance.
 
 Use Python 3.11 or newer:
 
 ```sh
 python tools/verify.py
 python tools/build_prism.py
-python tools/smoke_install.py --java /path/to/java
+python tools/smoke_install.py --profile BASE --java /path/to/java
+python tools/smoke_install.py --profile PINOUT --java /path/to/java
 ```
 
-The build writes the Prism ZIP and checksums to `build/distributions/`. The smoke check installs the real pack twice into an isolated instance and verifies mod hashes, loader metadata, every packaged save file, and preservation of a world-edit marker in each world. It does not launch Minecraft, sign in, or modify an existing Prism installation.
+Verification and building cover both profiles by default; use `--profile BASE` or `--profile PINOUT` to select one. The build writes both Prism ZIPs and checksums to `build/distributions/`. Each smoke check installs its pack twice into an isolated instance and verifies the exact mod set, loader metadata, every packaged save file, and preservation of a world-edit marker in each world. It does not launch Minecraft, sign in, or modify an existing Prism installation.
 
-After editing managed files, run `packwiz refresh` from `pack/`, then run verification. The index covers only that directory. Keep the example world and launcher templates outside the index. For a new pack version, update the lock, pack version, instance name, fixed tag URL, and README together. Never rewrite a published tag.
+The Pinout metadata is in `pack/`; Base is in `pack-base/`. After editing managed files, run `packwiz refresh` in each affected directory, then verify both profiles. Keep shared mod metadata consistent between editions. Each index covers only its own directory. Keep worlds and launcher templates outside the indices. For a new version, update the shared lock, both pack versions, both instance names and tag URLs, and README together. Never rewrite a published tag.
 
 The [official packwiz installer guide](https://packwiz.infra.link/tutorials/installing/packwiz-installer/) and [Prism import guide](https://prismlauncher.org/wiki/help-pages/Zip-import/) describe the installation flow.
 
 ## License
 
-WWPG pack code and documentation use [MIT](LICENSE). The ZIP retains the packwiz bootstrap and installer licenses. WWPG's 0.2.0 jar includes its MIT license. Power Grid's bundled native resources and the other upstream dependencies retain their own licenses.
+WWPG pack code and documentation use [MIT](LICENSE). Each ZIP retains the packwiz bootstrap and installer licenses. WWPG's 0.2.2-alpha.1 jar includes its MIT license. Power Grid's bundled native resources and the other upstream dependencies retain their own licenses.

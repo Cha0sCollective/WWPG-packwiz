@@ -11,7 +11,7 @@ import tempfile
 import threading
 import zipfile
 
-from build_prism import LOCK, ROOT, WORLD_ASSETS, build
+from build_prism import LOCK, ROOT, build
 
 
 class QuietHandler(SimpleHTTPRequestHandler):
@@ -24,9 +24,11 @@ class PackServer(ThreadingHTTPServer):
     request_queue_size = 32
 
 
-def smoke(java, pack_url=None):
-    archive = build()
-    handler = functools.partial(QuietHandler, directory=str(ROOT / "pack"))
+def smoke(java, pack_url=None, profile=LOCK["default_profile"]):
+    settings = LOCK["profiles"][profile]
+    mods = [mod for mod in LOCK["mods"] if mod["id"] in settings["mods"]]
+    archive = build(profile)
+    handler = functools.partial(QuietHandler, directory=str(ROOT / settings["pack_dir"]))
     server = None
     if pack_url is None:
         server = PackServer(("127.0.0.1", 0), handler)
@@ -44,7 +46,7 @@ def smoke(java, pack_url=None):
                 }
             minecraft = instance / "minecraft"
             markers = [minecraft / "saves" / LOCK["assets"][key]["directory"] / "player-edit-sentinel.txt"
-                       for key in WORLD_ASSETS]
+                       for key in settings["worlds"]]
             env = os.environ.copy()
             env["INST_DIR"] = str(instance)
             env["INST_MC_DIR"] = str(minecraft)
@@ -54,11 +56,12 @@ def smoke(java, pack_url=None):
             for phase in (1, 2):
                 result = subprocess.run(args, cwd=minecraft, env=env,
                                         capture_output=True, text=True, timeout=180)
-                (ROOT / "build" / ("installer-smoke-" + str(phase) + ".log")).write_text(
+                (ROOT / "build" / ("installer-smoke-" + profile + "-" + str(phase) + ".log")).write_text(
                     result.stdout + result.stderr, encoding="utf-8"
                 )
                 result.check_returncode()
-                for mod in LOCK["mods"]:
+                assert {path.name for path in (minecraft / "mods").glob("*.jar")} == {mod["filename"] for mod in mods}
+                for mod in mods:
                     actual = hashlib.sha256((minecraft / "mods" / mod["filename"]).read_bytes()).hexdigest()
                     assert actual == mod["sha256"], mod["filename"]
                 components = json.loads((instance / "mmc-pack.json").read_text(encoding="utf-8"))
@@ -76,7 +79,7 @@ def smoke(java, pack_url=None):
                     for marker in markers:
                         assert marker.read_text(encoding="utf-8") == "Keep this player's world edits.\n"
                     assert "# Player config note" in config.read_text(encoding="utf-8")
-            print(f"Actual packwiz installation and relaunch passed: {len(LOCK['mods'])} matching jars, both worlds and configuration preserved")
+            print(f"{profile} installation and relaunch passed: {len(mods)} matching jars, both worlds and configuration preserved")
     finally:
         if server is not None:
             server.shutdown()
@@ -87,5 +90,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--java", default="java")
     parser.add_argument("--pack-url")
+    parser.add_argument("--profile", choices=LOCK["profiles"], default=LOCK["default_profile"])
     args = parser.parse_args()
-    smoke(args.java, args.pack_url)
+    smoke(args.java, args.pack_url, args.profile)
