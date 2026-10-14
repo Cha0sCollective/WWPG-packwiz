@@ -1,14 +1,14 @@
 name = "WWPG Test Pack - Pinout"
 author = "Cha0sCollective"
-version = "0.2.2-alpha.1"
+version = "0.2.2-beta.2"
 description = "Mixed CEE and Power Grid factories with Pinout computer controls and their test yard, ready to try in Prism."
 pack-format = "packwiz:1.1.0"
 
 [index]
 file = "index.toml"
 hash-format = "sha256"
-hash = "6360ce8d4b9db47add7df9280815ff6b17678cac979935d72017b24e43c9d4a0"
+hash = "375c84649fca3a946cdebc789b8e1a60f10e0b960d1e39071a571d313e304ff5"
 
 [versions]
 minecraft = "1.21.1"
-neoforge = "21.1.231"
+neoforge = "21.1.248"

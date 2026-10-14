@@ -16,6 +16,11 @@ def sha256(data):
 
 
 def download(asset):
+    if "path" in asset:
+        path = (ROOT / asset["path"]).resolve()
+        if not path.is_relative_to(ROOT.resolve()) or sha256(path.read_bytes()) != asset["sha256"]:
+            raise ValueError("Local asset checksum/path mismatch: " + asset["filename"])
+        return path
     path = ROOT / "build/cache" / asset["filename"]
     path.parent.mkdir(parents=True, exist_ok=True)
     if path.is_file() and sha256(path.read_bytes()) == asset["sha256"]:

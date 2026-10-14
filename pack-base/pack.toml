@@ -1,14 +1,14 @@
 name = "WWPG Test Pack - Base"
 author = "Cha0sCollective"
-version = "0.2.2-alpha.1"
+version = "0.2.2-beta.2"
 description = "Mixed CEE and Power Grid factories and the Stationary Test Yard, ready to try in Prism."
 pack-format = "packwiz:1.1.0"
 
 [index]
 file = "index.toml"
 hash-format = "sha256"
-hash = "9618fa2939e4a4216438d543a1653b4c16bac917dac8a587795366000efd299b"
+hash = "60e1fbbd7c6603763f5bb6a0ad7df02880b0613757db9e7cf9cecb7775ace2dc"
 
 [versions]
 minecraft = "1.21.1"
-neoforge = "21.1.231"
+neoforge = "21.1.248"

@@ -79,7 +79,7 @@ def smoke(java, pack_url=None, profile=LOCK["default_profile"]):
                     for marker in markers:
                         assert marker.read_text(encoding="utf-8") == "Keep this player's world edits.\n"
                     assert "# Player config note" in config.read_text(encoding="utf-8")
-            print(f"{profile} installation and relaunch passed: {len(mods)} matching jars, both worlds and configuration preserved")
+            print(f"{profile} installation and relaunch passed: {len(mods)} matching jars, {len(settings['worlds'])} worlds and configuration preserved")
     finally:
         if server is not None:
             server.shutdown()

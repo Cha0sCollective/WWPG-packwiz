@@ -1,10 +1,12 @@
 """Check the release lock, packwiz hashes, solver settings and Prism templates."""
 import argparse
 import configparser
+import gzip
 import hashlib
 import json
 from pathlib import Path
 import tomllib
+import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -69,6 +71,7 @@ def _verify_profile(lock, profile):
     assert launcher["InstanceType"] == "OneSix"
     assert launcher.getboolean("AutomaticJava")
     assert launcher.getboolean("OverrideCommands")
+    assert launcher.getint("MaxMemAlloc") == 8192
     command = launcher["PreLaunchCommand"].replace('\\"', '"')
     assert command.startswith('"$INST_JAVA" ')
     assert '--bootstrap-no-update' in command
@@ -80,10 +83,17 @@ def _verify_profile(lock, profile):
     for asset in lock["assets"].values():
         assert len(asset["sha256"]) == 64
     world_directories = []
-    assert len(settings["worlds"]) == 2
+    assert len(settings["worlds"]) == 3
+    assert "benchmark_world" in settings["worlds"]
     for key in settings["worlds"]:
         asset = lock["assets"][key]
-        assert asset["url"].startswith("https://")
+        assert ("url" in asset) != ("path" in asset)
+        if "path" in asset:
+            source = (ROOT / asset["path"]).resolve()
+            assert source.is_relative_to(ROOT.resolve())
+            assert digest(source) == asset["sha256"]
+        else:
+            assert asset["url"].startswith("https://")
         directory = asset["directory"]
         assert directory and directory not in (".", "..")
         assert not any(character in directory for character in "/\\:")
@@ -93,7 +103,18 @@ def _verify_profile(lock, profile):
             assert asset["member"].endswith(".zip")
         world_directories.append(directory)
     assert len(set(world_directories)) == len(world_directories)
-    print(f"{profile}: index, {len(settings['mods'])} pinned mods, Prism versions and native/16 solver settings verified")
+    benchmark = lock["assets"]["benchmark_world"]
+    assert benchmark["directory"] == "14,650 node benchmark"
+    with zipfile.ZipFile(ROOT / benchmark["path"]) as world:
+        raw = gzip.decompress(world.read(benchmark["directory"] + "/level.dat"))
+        marker = b"\x08\x00\x09LevelName"
+        assert raw.count(marker) == 1
+        start = raw.index(marker) + len(marker)
+        length = int.from_bytes(raw[start:start + 2], "big")
+        assert raw[start + 2:start + 2 + length].decode("utf-8") == benchmark["directory"]
+        grid = json.loads(world.read(benchmark["directory"] + "/WWPG_BENCHMARK.json"))
+        assert grid["audit"]["electrical_nodes"] == 14650
+    print(f"{profile}: index, {len(settings['mods'])} pinned mods, benchmark label/count and native/16 settings verified")
 
 
 def verify(profile=None):
