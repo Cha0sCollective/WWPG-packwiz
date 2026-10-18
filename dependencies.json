@@ -1,6 +1,6 @@
 {
   "schema": 2,
-  "version": "0.2.2-beta.3",
+  "version": "0.2.2",
   "default_profile": "PINOUT",
   "repository": "Cha0sCollective/WWPG-packwiz",
   "minecraft": "1.21.1",
@@ -58,10 +58,10 @@
     {
       "id": "wwpg",
       "name": "World-Wide Power Grid",
-      "version": "0.2.2-beta.3",
-      "filename": "wwpg-0.2.2-beta.3.jar",
-      "url": "https://github.com/Cha0sCollective/World-Wide-Power-Grid/releases/download/0.2.2-beta.3/wwpg-0.2.2-beta.3.jar",
-      "sha256": "aa95d88856f817b1a40d532a0be7f7c3963688cb3d0100a7bd6d4b5958ff6ebf"
+      "version": "0.2.2",
+      "filename": "wwpg-0.2.2.jar",
+      "url": "https://github.com/Cha0sCollective/World-Wide-Power-Grid/releases/download/0.2.2/wwpg-0.2.2.jar",
+      "sha256": "3090d604c96db299f42af1dff7206fc7e278ae43743c61af005969d317412bc9"
     },
     {
       "id": "computercraft",
@@ -112,12 +112,12 @@
       "sha256": "ef7547db80a9ce80246c2825008e24bca6712104f82e8e2f5701e9871947c413"
     },
     "expanded_world": {
-      "filename": "wwpg-0.2.2-beta.3-example-worlds.zip",
+      "filename": "wwpg-0.2.2-example-worlds.zip",
       "directory": "Stationary Test Yard — Pinout",
-      "url": "https://github.com/Cha0sCollective/World-Wide-Power-Grid/releases/download/0.2.2-beta.3/wwpg-0.2.2-beta.3-example-worlds.zip",
-      "sha256": "78d9a47eea5de7b0c2419d1f53774ab9e70b672967c0e8984f9b4fc90921dd92",
-      "member": "worlds/wwpg-0.2.2-beta.3-stationary-yard-pinout.zip",
-      "member_sha256": "90d9bf900b03cbe670ef4670dfd518edaf229a01a3232c1d476c32ce262aaa63"
+      "url": "https://github.com/Cha0sCollective/World-Wide-Power-Grid/releases/download/0.2.2/wwpg-0.2.2-example-worlds.zip",
+      "sha256": "56ee673c1868bde23082350eb52e3cbe729f60827208fc717b377a5c5acadaa0",
+      "member": "worlds/wwpg-0.2.2-stationary-yard.zip",
+      "member_sha256": "abf1607093f8620a51353a47d3b695d6973baf81e89e0f4c5fe559405f32cace"
     },
     "base_world": {
       "filename": "wwpg-0.2.2-beta.3-example-worlds.zip",
